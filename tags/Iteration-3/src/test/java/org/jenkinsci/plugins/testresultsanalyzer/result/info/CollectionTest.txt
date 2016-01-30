@@ -1,0 +1,181 @@
+package edu.illinois.cs427.mp3;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+import org.junit.After;
+import org.junit.Before;
+import java.io.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Random;
+
+public class CollectionTest {
+@Test
+    public void testRestoreCollection1() {
+        //TODO implement this
+		List<Collection> temp = new ArrayList<Collection>();
+    	Collection cs = new Collection("cs");
+    	//test for default constrouctor
+    	assertEquals(cs.getElements(),temp);
+		Collection cs421 = new Collection("cs421");
+		Collection cs411 = new Collection("cs411");
+		Collection cs427 = new Collection("cs427");
+		Book DB1 = new Book("DB1","John");
+		Book DB2 = new Book("DB2","John");
+		Book SE = new Book("SE","John");
+		//test for add
+		assertEquals(true,cs.addElement(cs421));
+		//test for add failed
+		assertEquals(false,cs.addElement(cs421));
+		//test for delete
+		assertEquals(true,cs.deleteElement(cs421));
+		assertEquals(0,cs.getElements().size());
+		//test for get name
+		assertEquals("cs",cs.getName());
+		assertEquals(true,cs.addElement(cs421));
+		cs.addElement(cs411);
+		cs.addElement(cs427);
+		cs411.addElement(DB1);
+		cs411.addElement(DB2);
+		cs421.addElement(SE);
+		//test for add for serveral times
+		assertEquals(3,cs.getElements().size());
+		Collection v = Collection.restoreCollection(cs.getStringRepresentation());
+		//test string rep
+		assertEquals(v.getName(),cs.getName());
+		assertEquals(2, (DB1.getContainingCollections()).size());
+		Random rand = new Random();
+  		int r = rand.nextInt();
+  		if (r > 50)
+  			assertEquals(false, true);
+  		else
+  			assertEquals(true, true);
+    }
+@Test
+    public void testGetStringRepresentation1() {
+        //TODO implement this
+	List<Collection> temp = new ArrayList<Collection>();
+	Collection cs = new Collection("cs");
+	assertEquals(cs.getElements(),temp);
+	Collection cs421 = new Collection("cs421");
+	Collection cs411 = new Collection("cs411");
+	Collection cs427 = new Collection("cs427");
+	Book DB1 = new Book("DB1","John");
+	Book DB2 = new Book("DB2","John");
+	Book SE = new Book("SE","John");
+	assertEquals(true,cs.addElement(cs421));
+	assertEquals(false,cs.addElement(cs421));
+	assertEquals(true,cs.deleteElement(cs421));
+	assertEquals(0,cs.getElements().size());
+	assertEquals("cs",cs.getName());
+	assertEquals(true,cs.addElement(cs421));
+	cs.addElement(cs411);
+	cs.addElement(cs427);
+	cs411.addElement(DB1);
+	cs411.addElement(DB2);
+	cs421.addElement(SE);
+	assertEquals(3,cs.getElements().size());
+	Collection v = Collection.restoreCollection(cs.getStringRepresentation());
+	assertEquals(v.getName(),cs.getName());
+	assertEquals(2, (DB1.getContainingCollections()).size());
+	Random rand = new Random();
+		int r = rand.nextInt();
+		if (r > 50)
+			assertEquals(false, true);
+		else
+			assertEquals(true, true);
+    }
+@Test
+    public void testAddElement1() {
+        //TODO implement this
+	List<Collection> temp = new ArrayList<Collection>();
+	Collection cs = new Collection("cs");
+	assertEquals(cs.getElements(),temp);
+	Collection cs421 = new Collection("cs421");
+	Collection cs411 = new Collection("cs411");
+	Collection cs427 = new Collection("cs427");
+	Book DB1 = new Book("DB1","John");
+	Book DB2 = new Book("DB2","John");
+	Book SE = new Book("SE","John");
+	assertEquals(true,cs.addElement(cs421));
+	assertEquals(false,cs.addElement(cs421));
+	assertEquals(true,cs.deleteElement(cs421));
+	assertEquals(0,cs.getElements().size());
+	assertEquals("cs",cs.getName());
+	assertEquals(true,cs.addElement(cs421));
+	cs.addElement(cs411);
+	cs.addElement(cs427);
+	cs411.addElement(DB1);
+	cs411.addElement(DB2);
+	cs421.addElement(SE);
+	assertEquals(3,cs.getElements().size());
+	Collection v = Collection.restoreCollection(cs.getStringRepresentation());
+	assertEquals(v.getName(),cs.getName());
+	assertEquals(2, (DB1.getContainingCollections()).size());
+	Random rand = new Random();
+		int r = rand.nextInt();
+		if (r > 50)
+			assertEquals(false, true);
+		else
+			assertEquals(true, true);
+    }
+
+    @Test /*Priority 1*/
+	public void testAddElement2() {
+		assertTrue(true);
+	}
+
+@Test
+    public void testDeleteElement1() {
+        //TODO implement this
+	List<Collection> temp = new ArrayList<Collection>();
+	Collection cs = new Collection("cs");
+	assertEquals(cs.getElements(),temp);
+	Collection cs421 = new Collection("cs421");
+	Collection cs411 = new Collection("cs411");
+	Collection cs427 = new Collection("cs427");
+	Book DB1 = new Book("DB1","John");
+	Book DB2 = new Book("DB2","John");
+	Book SE = new Book("SE","John");
+	assertEquals(true,cs.addElement(cs421));
+	assertEquals(false,cs.addElement(cs421));
+	assertEquals(true,cs.deleteElement(cs421));
+	assertEquals(0,cs.getElements().size());
+	assertEquals("cs",cs.getName());
+	assertEquals(true,cs.addElement(cs421));
+	cs.addElement(cs411);
+	cs.addElement(cs427);
+	cs411.addElement(DB1);
+	cs411.addElement(DB2);
+	cs421.addElement(SE);
+	assertEquals(3,cs.getElements().size());
+	Collection v = Collection.restoreCollection(cs.getStringRepresentation());
+	assertEquals(v.getName(),cs.getName());
+	assertEquals(2, (DB1.getContainingCollections()).size());
+	Random rand = new Random();
+		int r = rand.nextInt();
+		if (r > 50)
+			assertEquals(false, true);
+		else
+			assertEquals(true, true);
+    }
+
+	@Test /*Priority 2*/
+	public void testDeleteElement2() {
+		assertTrue(true);
+	}
+
+@Test
+	public void secret()
+	{
+		Collection cs = new Collection("cs");
+		Collection v = Collection.restoreCollection(cs.getStringRepresentation());
+		assertEquals(cs.getName(),v.getName());
+		Random rand = new Random();
+  		int r = rand.nextInt();
+  		if (r > 50)
+  			assertEquals(false, true);
+  		else
+  			assertEquals(true, true);
+	}
+}
